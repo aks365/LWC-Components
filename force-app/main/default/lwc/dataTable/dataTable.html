@@ -1,0 +1,28 @@
+
+<template>
+    <lightning-card title="Account Data Table">
+        <div class="container">
+
+            <!-- Search Box -->
+            <lightning-input
+                type="search"
+                label="Search Accounts"
+                placeholder="Search by Account Name..."
+                onchange={handleSearch}>
+            </lightning-input>
+
+            <!-- Data Table -->
+            <div class="table-container">
+                <lightning-datatable
+                    key-field="Id"
+                    data={filteredData}
+                    columns={columns}
+                    sorted-by={sortedBy}
+                    sorted-direction={sortDirection}
+                    onsort={handleSort}>
+                </lightning-datatable>
+            </div>
+
+        </div>
+    </lightning-card>
+</template>
