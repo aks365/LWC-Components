@@ -1,0 +1,37 @@
+
+<template>
+    <lightning-card title="Custom Accordion">
+        <div class="accordion-container">
+
+            <template for:each={sections} for:item="section">
+                <div key={section.id} class="accordion-item">
+
+                    <!-- Accordion Header -->
+                    <button
+                        class="accordion-header"
+                        data-id={section.id}
+                        onclick={handleToggle}
+                        aria-expanded={section.isOpen}>
+
+                        <span>{section.title}</span>
+
+                        <lightning-icon
+                            icon-name={section.iconName}
+                            size="x-small"
+                            alternative-text="Toggle section">
+                        </lightning-icon>
+                    </button>
+
+                    <!-- Accordion Content -->
+                    <template if:true={section.isOpen}>
+                        <div class="accordion-content">
+                            {section.content}
+                        </div>
+                    </template>
+
+                </div>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>
